@@ -9,6 +9,13 @@ class Router {
             handler
         })
     }
+    post(url, handler) {
+        this._routes.push({
+            url: url,
+            method: 'POST',
+            handler
+        })
+    }
     routes() {
         return async (ctx, next) => {
             const { method, url } = ctx
@@ -16,7 +23,7 @@ class Router {
             if (matchedRouter && matchedRouter.handler) {
                 await matchedRouter.handler(ctx, next)
             } else {
-                next()
+                await next()
             }
         }
     }
