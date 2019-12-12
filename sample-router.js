@@ -1,5 +1,5 @@
 const fs = require('fs')
-const Koa = require('koa')
+const  Koa = require('koa')
 const path = require('path')
 const app = new Koa()
 const route = require('./middleware/Router')
@@ -22,6 +22,6 @@ router.post('/login', async (context, next) => {
     context.body = postData
 })
 
-
+ 
 app.use(bodyParser()).use(router.routes())
 app.listen(4000)

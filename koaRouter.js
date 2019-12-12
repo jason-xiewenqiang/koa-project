@@ -8,6 +8,9 @@ const app = new koa()
 const router = new koaRouter()
 
 router.get('/', async (context, next) => {
+    const query = context.request.query
+    console.log(query)
+    console.log(context.request.querystring)
     context.type = 'html'
     context.body = fs.readFileSync(path.join(__dirname, 'index.html'))
 })
